@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="VideogameTracker.API/VideogameTracker.API.csproj" />
+  <Project Path="VideogameTracker.Application/VideogameTracker.Application.csproj" />
+  <Project Path="VideogameTracker.Domain/VideogameTracker.Domain.csproj" />
+  <Project Path="VideogameTracker.Infrastructure/VideogameTracker.Infrastructure.csproj" />
+</Solution>
