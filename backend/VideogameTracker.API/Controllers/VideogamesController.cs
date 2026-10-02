@@ -32,21 +32,21 @@ public class VideogamesController : ControllerBase {
 
     [HttpPost]
     public async Task<IActionResult> CrearVideogame([FromBody] CreateVideogameRequestDto request) {
-        // 1. Ejecutar FluentValidation
+        
         var validationResult = await _validator.ValidateAsync(request);
         if (!validationResult.IsValid) {
-            return BadRequest(validationResult.Errors); // HTTP 400 automático con detalles
+            return BadRequest(validationResult.Errors); 
         }
 
-        // 2. Mapeo Manual: DTO -> Entidad (Solo transferimos lo permitido)
+        
         var nuevoVideogame = new VideogameGlobal {
             Nombre = request.Nombre
         };
 
-        // 3. Persistencia
+        
         var videogameCreado = await _repository.AddAsync(nuevoVideogame);
         
-        // 4. Mapeo de Retorno
+        
         var response = new VideogameResponseDto {
             Id = videogameCreado.Id,
             Nombre = videogameCreado.Nombre
